@@ -1,0 +1,20 @@
+Package: tweetrmd
+Title: Embed Tweets in R Markdown
+Version: 0.0.1
+Authors@R: 
+    person(given = "Garrick",
+           family = "Aden-Buie",
+           role = c("aut", "cre"),
+           email = "Garrick.Aden-Buie@moffitt.org",
+           comment = c(ORCID = "0000-0002-7111-0077"))
+Description: Easily embed Tweets anywhere R Markdown turns plain
+    text into HTML.
+License: MIT + file LICENSE
+Imports: 
+    htmltools,
+    httr,
+    jsonlite
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2
