@@ -10,6 +10,8 @@ Authors@R:
 Description: Easily embed Tweets anywhere R Markdown turns plain
     text into HTML.
 License: MIT + file LICENSE
+URL: https://github.com/gadenbuie/tweetrmd
+BugReports: https://github.com/gadenbuie/tweetrmd/issues
 Imports: 
     htmltools,
     httr,
