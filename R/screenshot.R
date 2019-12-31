@@ -23,6 +23,7 @@ tweet_screenshot <- function(
   maxwidth = 550,
   scale = 2,
   file = NULL,
+  link_color = NULL,
   ...
 ) {
   requires_webshot2()
@@ -35,17 +36,14 @@ tweet_screenshot <- function(
     htmltools::tags$head(
       htmltools::tags$style(
         sprintf(
-          "body { transform: scale(%f); transform-origin: top left; }
-          #screenshot-tweet { width: max-content; height: max-content; }",
-          scale
+          read_pkg_file("tweet-screenshot-default.css"),
+          scale,
+          link_color %||% "#3b94d9"
         )
       )
     ),
     htmltools::tags$script(
-      htmltools::HTML(paste(
-        readLines(system.file("styleTweet.js", package = "tweetrmd")),
-        collapse = "\n"
-      ))
+      htmltools::HTML(read_pkg_file("styleTweet.js"))
     )
   )
 

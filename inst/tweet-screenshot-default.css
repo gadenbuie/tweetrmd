@@ -1,0 +1,31 @@
+body {
+  font: normal normal 16px/1.4 Helvetica,Roboto,"Segoe UI",Calibri,sans-serif;
+  color: #1c2022;
+  white-space: normal;
+  transform: scale(%0.2f);
+  transform-origin: top left;
+}
+#screenshot-tweet {
+  width: min-content;
+  height: max-content;
+  padding: 0;
+}
+#screenshot-tweet blockquote {
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #e1e8ed;
+  min-width: 520px;
+  max-width: 520px;
+  padding: 1em;
+  margin: 0;
+  color: #777;
+}
+#screenshot-tweet blockquote > p {
+  margin-top: 0;
+  color: #1c2022;
+}
+#screenshot-tweet a {
+  color: %s;
+  text-decoration: none;
+}
