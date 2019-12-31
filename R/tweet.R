@@ -1,7 +1,9 @@
 #' Embed a Tweet in R Markdown HTML outputs
 #'
-#' Uses Twitter's [oembed](https://publish.twitter.com/oembed) API to embed a
+#' Uses Twitter's [oembed](https://publish.twitter.com) API to embed a
 #' tweet in R Markdown HTML outputs.
+#'
+#' @references <https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed>
 #'
 #' @examples
 #' \dontrun{

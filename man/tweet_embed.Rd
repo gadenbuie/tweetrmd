@@ -84,7 +84,7 @@ and \href{https://support.twitter.com/articles/20170405}{personalized ads}.}
 The placeholder HTML for the tweet
 }
 \description{
-Uses Twitter's \href{https://publish.twitter.com/oembed}{oembed} API to embed a
+Uses Twitter's \href{https://publish.twitter.com}{oembed} API to embed a
 tweet in R Markdown HTML outputs.
 }
 \section{Functions}{
@@ -102,4 +102,7 @@ tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
 tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
 }
 
+}
+\references{
+\url{https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed}
 }
