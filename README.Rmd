@@ -32,9 +32,17 @@ devtools::install_github("gadenbuie/tweetrmd")
 
 ## Embed a Tweet
 
+```{r setup, include=FALSE, eval=FALSE}
+# not using yet because memoising screenshots 
+# doesn't work with knitr out of the box yet
+library(memoise)
+tweet_url <- tweetrmd::tweet_url
+tweet_embed <- memoise(tweetrmd::tweet_embed, cache = cache_filesystem(".tweets"))
+tweet_screenshot <- memoise(tweetrmd::tweet_screenshot, cache = cache_filesystem(".tweets"))
+```
+
 ```{r}
 library(tweetrmd)
-
 tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
 ```
 
@@ -43,6 +51,9 @@ Or if you would rather use the screen name and status id.
 ```{r}
 tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
 ```
+
+In rich HTML outputs, the full embedded tweet is available and interactive.
+Here, in GitHub-flavored markdown, only the content of the tweet is seen.
 
 ## Take a screenshot of a tweet
 
@@ -68,6 +79,22 @@ tweet_screenshot(
   theme = "dark"
 )
 ```
+
+## Caching tweets with memoization
+
+Tweets are often deleted and re-running `tweet_embed()` or `tweet_screenshot()`
+may fail or overwrite a previous screenshot of a tweet.
+To avoid this, you can use the [memoise](https://github.com/r-lib/memoise) package.
+
+```r
+library(memoise)
+
+tweet_cached <- memoise(tweet_embed, cache = cache_filesystem('.tweets'))
+tweet_shot_cached <- memoise(tweet_screenshot, cache = cache_filesystem('.tweets'))
+```
+
+<sup>*</sup>When memoising `tweet_screenshot()` you need to manually save the file
+to a specific location. In the future my goal is for this to be automatic.
 
 ---
 

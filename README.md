@@ -22,7 +22,6 @@ devtools::install_github("gadenbuie/tweetrmd")
 
 ``` r
 library(tweetrmd)
-
 tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
 ```
 
@@ -74,6 +73,10 @@ blogdown*?<a href="https://t.co/5kQUBh7j4g">https://t.co/5kQUBh7j4g</a>
 
 <!--/html_preserve-->
 
+In rich HTML outputs, the full embedded tweet is available and
+interactive. Here, in GitHub-flavored markdown, only the content of the
+tweet is seen.
+
 ## Take a screenshot of a tweet
 
 Screenshots are automatically embedded in R Markdown documents, or you
@@ -103,6 +106,24 @@ tweet_screenshot(
 ```
 
 <img src="man/figures/README-screenshot-customized-1.png" width="300px" />
+
+## Caching tweets with memoization
+
+Tweets are often deleted and re-running `tweet_embed()` or
+`tweet_screenshot()` may fail or overwrite a previous screenshot of a
+tweet. To avoid this, you can use the
+[memoise](https://github.com/r-lib/memoise) package.
+
+``` r
+library(memoise)
+
+tweet_cached <- memoise(tweet_embed, cache = cache_filesystem('.tweets'))
+tweet_shot_cached <- memoise(tweet_screenshot, cache = cache_filesystem('.tweets'))
+```
+
+<sup>\*</sup>When memoising `tweet_screenshot()` you need to manually
+save the file to a specific location. In the future my goal is for this
+to be automatic.
 
 -----
 
