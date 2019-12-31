@@ -2,4 +2,5 @@
 
 export("%tweet%")
 export(tweet_embed)
+export(tweet_screenshot)
 export(tweet_url)
