@@ -4,7 +4,7 @@
 \alias{tweet_screenshot}
 \title{Take or embed a screenshot of a tweet}
 \usage{
-tweet_screenshot(tweet_url, maxwidth = 550, file = NULL, ...)
+tweet_screenshot(tweet_url, maxwidth = 550, scale = 2, file = NULL, ...)
 }
 \arguments{
 \item{tweet_url}{The URL for the tweet, or use \code{\link[=tweet_url]{tweet_url()}} to build the URL
@@ -19,6 +19,8 @@ and are therefore of unpredictable height that cannot be scaled like an
 image or video. Relatedly, the oEmbed response will not provide a value for
 \code{height.} Implementations that need consistent heights for Tweets should
 refer to the \code{hide_thread} and `hide_media`` parameters below.}
+
+\item{scale}{Scale the tweet for a better quality screenshot. Default is 2.}
 
 \item{file}{A character string of output files. Can end with \code{.png} or \code{.pdf}.}
 

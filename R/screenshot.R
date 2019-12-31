@@ -13,6 +13,7 @@
 #' }
 #'
 #' @inheritParams tweet_embed
+#' @param scale Scale the tweet for a better quality screenshot. Default is 2.
 #' @param file A character string of output files. Can end with `.png` or `.pdf`.
 #' @inheritDotParams tweet_embed
 #' @seealso [tweet_embed()]
@@ -20,13 +21,26 @@
 tweet_screenshot <- function(
   tweet_url,
   maxwidth = 550,
+  scale = 2,
   file = NULL,
   ...
 ) {
   requires_webshot2()
 
   html <- htmltools::tagList(
-    tweet_embed(tweet_url, maxwidth = maxwidth, ...),
+    htmltools::div(
+      id = "screenshot-tweet",
+      tweet_embed(tweet_url, maxwidth = maxwidth, ...)
+    ),
+    htmltools::tags$head(
+      htmltools::tags$style(
+        sprintf(
+          "body { transform: scale(%f); transform-origin: top left; }
+          #screenshot-tweet { width: max-content; height: max-content; }",
+          scale
+        )
+      )
+    ),
     htmltools::tags$script(
       htmltools::HTML(paste(
         readLines(system.file("styleTweet.js", package = "tweetrmd")),
@@ -41,8 +55,9 @@ tweet_screenshot <- function(
   webshot2::webshot(
     url = tmpfile,
     file = file %||% tempfile(fileext = ".png"),
-    vwidth = maxwidth + 10,
-    selector = ".twitter-tweet",
+    vwidth = maxwidth * scale + 10,
+    vheight = 2500 * scale,
+    selector = "#screenshot-tweet",
     expand = c(0, 0, 2, 0),
     delay = 0.25
   )

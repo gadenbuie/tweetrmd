@@ -28,7 +28,7 @@ tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
 
 <!--html_preserve-->
 
-<blockquote class="twitter-tweet" data-width="325" data-lang="en" data-dnt="true" data-theme="light">
+<blockquote class="twitter-tweet" data-width="550" data-lang="en" data-dnt="true" data-theme="light">
 
 <p lang="en" dir="ltr">
 
@@ -55,7 +55,7 @@ tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
 
 <!--html_preserve-->
 
-<blockquote class="twitter-tweet" data-width="325" data-lang="en" data-dnt="true" data-theme="light">
+<blockquote class="twitter-tweet" data-width="550" data-lang="en" data-dnt="true" data-theme="light">
 
 <p lang="en" dir="ltr">
 

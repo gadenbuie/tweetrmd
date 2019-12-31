@@ -1,6 +1,6 @@
 Package: tweetrmd
 Title: Embed Tweets in R Markdown
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     person(given = "Garrick",
            family = "Aden-Buie",
