@@ -55,7 +55,7 @@
 #' @export
 tweet_embed <- function(
   tweet_url,
-  maxwidth = 325,
+  maxwidth = 550,
   hide_media = FALSE,
   hide_thread = FALSE,
   omit_script = TRUE,

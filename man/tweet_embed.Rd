@@ -8,7 +8,7 @@
 \usage{
 tweet_embed(
   tweet_url,
-  maxwidth = 325,
+  maxwidth = 550,
   hide_media = FALSE,
   hide_thread = FALSE,
   omit_script = TRUE,
