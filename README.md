@@ -78,7 +78,7 @@ blogdown*?<a href="https://t.co/5kQUBh7j4g">https://t.co/5kQUBh7j4g</a>
 
 Screenshots are automatically embedded in R Markdown documents, or you
 can save the screenshot as a `.png` or `.pdf` file. Uses the
-[rstudio/webshot2](httos://github.com/rstudio/webshot2) package.
+[rstudio/webshot2](https://github.com/rstudio/webshot2) package.
 
 ``` r
 tweet_screenshot(tweet_url("alexpghayes", "1211748406730706944"))
