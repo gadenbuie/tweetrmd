@@ -86,10 +86,28 @@ tweet_screenshot(tweet_url("alexpghayes", "1211748406730706944"))
 
 <img src="man/figures/README-screenshot-1.png" width="400px" />
 
+## Customize tweet appearance
+
+Twitter’s [oembed
+API](https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed)
+provides a number of options, all of which are made available for
+customization in `tweet_embed()` and `tweet_screenshot()`.
+
+``` r
+tweet_screenshot(
+  tweet_url("alexpghayes", "1211748406730706944"),
+  maxwidth = 300,
+  hide_media = TRUE,
+  theme = "dark"
+)
+```
+
+<img src="man/figures/README-screenshot-customized-1.png" width="300px" />
+
 -----
 
-Note: you may need to add the following line to your YAML header for
-strict markdown output formats.
+Note: When using `tweet_embed()`, you may need to add the following line
+to your YAML header for strict markdown output formats.
 
 ``` yaml
 always_allow_html: true
