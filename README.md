@@ -89,6 +89,21 @@ tweet_screenshot(tweet_url("alexpghayes", "1211748406730706944"))
 
 <img src="man/figures/README-screenshot-1.png" width="400px" />
 
+## Just include a tweet in any R Markdown output format
+
+When you want to include a tweet in multiple R Markdown formats, you can
+use `include_tweet()`. It’s like `knitr::include_graphics()` but for
+tweets. The function will automatically include the tweet as HTML in
+HTML outputs, or as a screenshot in all others.
+
+```` markdown
+```{r tweet-from-dsquintana}
+include_tweet("https://twitter.com/dsquintana/status/1275705042385940480")
+```
+````
+
+<img src="/Users/garrick/Repos/tweetrmd/man/figures/README-tweet-from-dsquintana-1.png" width="400px" />
+
 ## Customize tweet appearance
 
 Twitter’s [oembed

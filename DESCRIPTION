@@ -1,11 +1,11 @@
 Package: tweetrmd
 Title: Embed Tweets in R Markdown
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: 
     person(given = "Garrick",
            family = "Aden-Buie",
            role = c("aut", "cre"),
-           email = "Garrick.Aden-Buie@moffitt.org",
+           email = "garrick@adenbuie.com",
            comment = c(ORCID = "0000-0002-7111-0077"))
 Description: Easily embed Tweets anywhere R Markdown turns plain
     text into HTML.
@@ -15,12 +15,13 @@ BugReports: https://github.com/gadenbuie/tweetrmd/issues
 Imports: 
     htmltools,
     httr,
-    jsonlite
+    jsonlite,
+    knitr
+Suggests: 
+    webshot2 (>= 0.0.0.9000)
+Remotes: 
+    rstudio/webshot2
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
-Remotes: 
-    rstudio/webshot2
-Suggests: 
-    webshot2 (>= 0.0.0.9000)
