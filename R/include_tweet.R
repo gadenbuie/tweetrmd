@@ -23,6 +23,6 @@ include_tweet <- function(tweet_url, ...) {
 
   filename <- knitr::fig_path(".png")
   dir.create(dirname(filename), recursive = TRUE, showWarnings = FALSE)
-  file_out <- tweet_screenshot(tweet_url, file = filename, ...)
-  knitr::include_graphics(file_out, dpi = NA)
+  tweet_screenshot(tweet_url, file = filename, ...)
+  knitr::include_graphics(filename, dpi = NA)
 }

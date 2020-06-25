@@ -102,7 +102,7 @@ include_tweet("https://twitter.com/dsquintana/status/1275705042385940480")
 ```
 ````
 
-<img src="/Users/garrick/Repos/tweetrmd/man/figures/README-tweet-from-dsquintana-1.png" width="400px" />
+<img src="man/figures/README-tweet-from-dsquintana-1.png" width="400px" />
 
 ## Customize tweet appearance
 
