@@ -4,7 +4,14 @@
 \alias{tweet_screenshot}
 \title{Take or embed a screenshot of a tweet}
 \usage{
-tweet_screenshot(tweet_url, maxwidth = 550, scale = 2, file = NULL, ...)
+tweet_screenshot(
+  tweet_url,
+  maxwidth = 550,
+  scale = 2,
+  file = NULL,
+  link_color = NULL,
+  ...
+)
 }
 \arguments{
 \item{tweet_url}{The URL for the tweet, or use \code{\link[=tweet_url]{tweet_url()}} to build the URL
@@ -23,6 +30,9 @@ refer to the \code{hide_thread} and `hide_media`` parameters below.}
 \item{scale}{Scale the tweet for a better quality screenshot. Default is 2.}
 
 \item{file}{A character string of output files. Can end with \code{.png} or \code{.pdf}.}
+
+\item{link_color}{Adjust the color of Tweet text links with a
+\href{https://en.wikipedia.org/wiki/Web_colors#Hex_triplet}{hexadecimal color value}.}
 
 \item{...}{
   Arguments passed on to \code{\link[=tweet_embed]{tweet_embed}}
@@ -46,8 +56,6 @@ if a viewer chooses to reply, like, or retweet the embedded Tweet.}
 \href{https://developer.twitter.com/web/overview/languages}{Twitter language supported by embedded Tweets}.}
     \item{\code{theme}}{When set to \code{dark}, the Tweet is displayed with light text over
 a dark background.}
-    \item{\code{link_color}}{Adjust the color of Tweet text links with a
-\href{https://en.wikipedia.org/wiki/Web_colors#Hex_triplet}{hexadecimal color value}.}
     \item{\code{widget_type}}{Set to \code{video} to return a Twitter Video embed for the
 given Tweet.}
     \item{\code{dnt}}{When set to \code{true}, the Tweet and its embedded page on your site

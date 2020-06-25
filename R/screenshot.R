@@ -28,9 +28,39 @@ tweet_screenshot <- function(
 ) {
   requires_webshot2()
 
-  html <- htmltools::tagList(
+  html <- single_tweet_page(tweet_url, maxwidth, scale, link_color, ...)
+
+  tmpfile <- tempfile(fileext = ".html")
+  htmltools::save_html(html, tmpfile, "transparent")
+
+  webshot2::webshot(
+    url = tmpfile,
+    file = file %||% tempfile(fileext = ".png"),
+    vwidth = maxwidth * scale + 10,
+    vheight = 2500 * scale,
+    selector = "#screenshot-tweet",
+    expand = c(0, 0, 2, 0),
+    delay = 0.5
+  )
+}
+
+requires_webshot2 <- function() {
+  if (!requireNamespace("webshot2", quietly = TRUE)) {
+    stop("`webshot2` is required: devtools::install_github('rstudio/webshot2')")
+  }
+}
+
+single_tweet_page <- function(
+  tweet_url,
+  maxwidth = 550,
+  scale = 2,
+  link_color = NULL,
+  ...
+) {
+  htmltools::tagList(
     htmltools::div(
       id = "screenshot-tweet",
+      style = "width: 100%",
       tweet_embed(tweet_url, maxwidth = maxwidth, ...)
     ),
     htmltools::tags$head(
@@ -46,23 +76,4 @@ tweet_screenshot <- function(
       htmltools::HTML(read_pkg_file("styleTweet.js"))
     )
   )
-
-  tmpfile <- tempfile(fileext = ".html")
-  htmltools::save_html(html, tmpfile, "transparent")
-
-  webshot2::webshot(
-    url = tmpfile,
-    file = file %||% tempfile(fileext = ".png"),
-    vwidth = maxwidth * scale + 10,
-    vheight = 2500 * scale,
-    selector = "#screenshot-tweet",
-    expand = c(0, 0, 2, 0),
-    delay = 0.25
-  )
-}
-
-requires_webshot2 <- function() {
-  if (!requireNamespace("webshot2", quietly = TRUE)) {
-    stop("`webshot2` is required: devtools::install_github('rstudio/webshot2')")
-  }
 }

@@ -121,9 +121,12 @@ html_dependency_twitter <- function() {
     name = "twitter-widget",
     version = "0.0.1",
     package = "tweetrmd",
-    src = "tw",
-    script = c("twitter-widgets-loader.js"),
-    all_files = TRUE
+    src = c(
+      file = "tw",
+      href = "https://platform.twitter.com/"
+    ),
+    script = "widgets.js",
+    all_files = FALSE
   )
 }
 
