@@ -122,6 +122,36 @@ tweet_screenshot(
 
 <img src="man/figures/README-screenshot-customized-1.png" width="300px" />
 
+## Embed without tracking
+
+You can use `tweetrmd` to embed tweets in your documents and outputs
+without including Twitter JavaScript or tracking. The easiest way is to
+set `plain = TRUE` in `include_tweet()`. This will insert minimal HTML
+for web outputs or convert the tweet text to markdown for non-web
+outputs.
+
+``` r
+include_tweet(
+  "https://twitter.com/dsquintana/status/1275705042385940480",
+  plain = TRUE
+)
+```
+
+    > {bookdown} folks: I\'m trying to knit a PDF version of a HTML book
+    > that contains HTML elements (embedded tweets).\
+    > \
+    > Is there a way to automatically take a screenshot of embedded tweets
+    > for PDF output?\
+    > \
+    > Using the {webshot} package + PhantomJS didn\'t
+    > work\...[\#Rstats](https://twitter.com/hashtag/Rstats?src=hash&ref_src=twsrc%5Etfw)
+    >
+    > --- Dan Quintana (\@dsquintana) [June 24,
+    > 2020](https://twitter.com/dsquintana/status/1275705042385940480?ref_src=twsrc%5Etfw)
+
+Alternatively, you can choose to use `tweet_screenshot()` to embed all
+tweets in your documents.
+
 ## Caching tweets with memoization
 
 Tweets are often deleted and re-running `tweet_embed()` or

@@ -37,6 +37,16 @@ refer to the \code{hide_thread} and `hide_media`` parameters below.}
 \item{...}{
   Arguments passed on to \code{\link[=tweet_embed]{tweet_embed}}
   \describe{
+    \item{\code{plain}}{Embeds the tweet without including Twitter's JavaScript code.
+This means the tweets will be displayed as minimally styled HTML in
+\code{\link[=tweet_embed]{tweet_embed()}} or \code{\link[=tweet_screenshot]{tweet_screenshot()}}. In \code{\link[=include_tweet]{include_tweet()}},
+\code{plain = TRUE} will convert the tweet text into markdown for non-HTML
+outputs.
+
+Note that for HTML outputs, you can't selectively choose whether or not a
+tweet is rendered in plain HTML if you include multiple tweet. Including
+one rich embedded tweet will trigger rich embedding of all tweets loaded
+on the page.}
     \item{\code{hide_media}}{When set to \code{true}, \code{"t"}, or \code{1} links in a Tweet are not
 expanded to photo, video, or link previews.}
     \item{\code{hide_thread}}{When set to \code{true}, \code{"t"}, or \code{1} a collapsed version of
@@ -79,5 +89,8 @@ tweet_screenshot(
 
 }
 \seealso{
-\code{\link[=tweet_embed]{tweet_embed()}}
+Other Tweet-embedding functions: 
+\code{\link{include_tweet}()},
+\code{\link{tweet_embed}()}
 }
+\concept{Tweet-embedding functions}

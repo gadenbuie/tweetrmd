@@ -100,6 +100,30 @@ tweet_screenshot(
 )
 ```
 
+## Embed without tracking
+
+You can use `tweetrmd` to embed tweets in your documents and outputs without
+including Twitter JavaScript or tracking.
+The easiest way is to set `plain = TRUE` in `include_tweet()`.
+This will insert minimal HTML for web outputs
+or convert the tweet text to markdown for non-web outputs.
+
+```{r tweet-from-dsquintana2, echo=TRUE, results='hide'}
+include_tweet(
+  "https://twitter.com/dsquintana/status/1275705042385940480",
+  plain = TRUE
+)
+```
+
+````
+```{r ref.label="tweet-from-dsquintana2", echo=FALSE}
+```
+
+````
+
+Alternatively, you can choose to use `tweet_screenshot()`
+to embed all tweets in your documents.
+
 ## Caching tweets with memoization
 
 Tweets are often deleted and re-running `tweet_embed()` or `tweet_screenshot()`

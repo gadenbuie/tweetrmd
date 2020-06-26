@@ -1,6 +1,6 @@
 Package: tweetrmd
 Title: Embed Tweets in R Markdown
-Version: 0.0.7
+Version: 0.0.8
 Authors@R: 
     person(given = "Garrick",
            family = "Aden-Buie",
@@ -16,7 +16,8 @@ Imports:
     htmltools,
     httr,
     jsonlite,
-    knitr
+    knitr,
+    rmarkdown
 Suggests: 
     webshot2 (>= 0.0.0.9000)
 Remotes: 

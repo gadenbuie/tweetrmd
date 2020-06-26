@@ -4,11 +4,22 @@
 \alias{include_tweet}
 \title{Include A Tweet in All R Markdown Formats}
 \usage{
-include_tweet(tweet_url, ...)
+include_tweet(tweet_url, plain = FALSE, ...)
 }
 \arguments{
 \item{tweet_url}{The URL for the tweet, or use \code{\link[=tweet_url]{tweet_url()}} to build the URL
 from a \code{screen_name} and \code{status_id}.}
+
+\item{plain}{Embeds the tweet without including Twitter's JavaScript code.
+This means the tweets will be displayed as minimally styled HTML in
+\code{\link[=tweet_embed]{tweet_embed()}} or \code{\link[=tweet_screenshot]{tweet_screenshot()}}. In \code{\link[=include_tweet]{include_tweet()}},
+\code{plain = TRUE} will convert the tweet text into markdown for non-HTML
+outputs.
+
+Note that for HTML outputs, you can't selectively choose whether or not a
+tweet is rendered in plain HTML if you include multiple tweet. Including
+one rich embedded tweet will trigger rich embedding of all tweets loaded
+on the page.}
 
 \item{...}{
   Arguments passed on to \code{\link[=tweet_embed]{tweet_embed}}
@@ -67,3 +78,9 @@ use \code{\link[=tweet_embed]{tweet_embed()}}.
 include_tweet("https://twitter.com/dsquintana/status/1275705042385940480")
 
 }
+\seealso{
+Other Tweet-embedding functions: 
+\code{\link{tweet_embed}()},
+\code{\link{tweet_screenshot}()}
+}
+\concept{Tweet-embedding functions}

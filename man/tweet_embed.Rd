@@ -9,6 +9,7 @@
 tweet_embed(
   tweet_url,
   maxwidth = 550,
+  plain = FALSE,
   hide_media = FALSE,
   hide_thread = FALSE,
   omit_script = TRUE,
@@ -38,6 +39,17 @@ and are therefore of unpredictable height that cannot be scaled like an
 image or video. Relatedly, the oEmbed response will not provide a value for
 \code{height.} Implementations that need consistent heights for Tweets should
 refer to the \code{hide_thread} and `hide_media`` parameters below.}
+
+\item{plain}{Embeds the tweet without including Twitter's JavaScript code.
+This means the tweets will be displayed as minimally styled HTML in
+\code{\link[=tweet_embed]{tweet_embed()}} or \code{\link[=tweet_screenshot]{tweet_screenshot()}}. In \code{\link[=include_tweet]{include_tweet()}},
+\code{plain = TRUE} will convert the tweet text into markdown for non-HTML
+outputs.
+
+Note that for HTML outputs, you can't selectively choose whether or not a
+tweet is rendered in plain HTML if you include multiple tweet. Including
+one rich embedded tweet will trigger rich embedding of all tweets loaded
+on the page.}
 
 \item{hide_media}{When set to \code{true}, \code{"t"}, or \code{1} links in a Tweet are not
 expanded to photo, video, or link previews.}
@@ -106,3 +118,9 @@ tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
 \references{
 \url{https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed}
 }
+\seealso{
+Other Tweet-embedding functions: 
+\code{\link{include_tweet}()},
+\code{\link{tweet_screenshot}()}
+}
+\concept{Tweet-embedding functions}

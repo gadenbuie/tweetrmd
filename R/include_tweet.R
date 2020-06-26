@@ -15,15 +15,37 @@
 #'
 #' @inheritParams tweet_embed
 #' @inheritDotParams tweet_embed
+#' @family Tweet-embedding functions
 #' @export
-include_tweet <- function(tweet_url, ...) {
+include_tweet <- function(tweet_url, plain = FALSE, ...) {
   if (!in_knitr() || knitr::is_html_output()) {
-    return(tweet_embed(tweet_url, ...))
+    return(tweet_embed(tweet_url, plain = plain, ...))
   }
 
-  tweet_screenshot(tweet_url, ...)
+  if (isTRUE(plain) || !requires_webshot2(stop = FALSE)) {
+    knitr::asis_output(tweet_as_markdown(tweet_url, ...))
+  } else {
+    tweet_screenshot(tweet_url, ...)
+  }
 }
 
+tweet_as_markdown <- function(x, ...) UseMethod("tweet_as_markdown", x)
+
+tweet_as_markdown.html <- function(html, ...) {
+  rmarkdown::pandoc_available(error = TRUE)
+  tmpfile <- tempfile(fileext = ".html")
+  tmpout <- tempfile(fileext = ".md")
+  on.exit(unlink(c(tmpfile, tmpout)))
+  writeLines(format(html), tmpfile)
+  rmarkdown::pandoc_convert(tmpfile, from = "html", output = tmpout)
+  paste(readLines(tmpout), collapse = "\n")
+}
+
+tweet_as_markdown.character <- function(tweet_url, ...) {
+  assert_string(tweet_url)
+  bq <- tweet_blockquote(tweet_url, ...)
+  tweet_as_markdown(bq)
+}
 
 in_knitr <- function() {
   !is.null(knitr::current_input())
