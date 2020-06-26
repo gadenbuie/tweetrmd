@@ -17,12 +17,14 @@
 #' @inheritDotParams tweet_embed
 #' @export
 include_tweet <- function(tweet_url, ...) {
-  if (is.null(knitr::current_input()) || knitr::is_html_output()) {
+  if (!in_knitr() || knitr::is_html_output()) {
     return(tweet_embed(tweet_url, ...))
   }
 
-  filename <- knitr::fig_path(".png")
-  dir.create(dirname(filename), recursive = TRUE, showWarnings = FALSE)
-  tweet_screenshot(tweet_url, file = filename, ...)
-  knitr::include_graphics(filename, dpi = NA)
+  tweet_screenshot(tweet_url, ...)
+}
+
+
+in_knitr <- function() {
+  !is.null(knitr::current_input())
 }
