@@ -144,10 +144,10 @@ include_tweet(
     > for PDF output?\
     > \
     > Using the {webshot} package + PhantomJS didn\'t
-    > work\...[\#Rstats](https://twitter.com/hashtag/Rstats?src=hash&ref_src=twsrc%5Etfw)
+    > work\...[\#Rstats](https://twitter.com/hashtag/Rstats)
     >
     > --- Dan Quintana (\@dsquintana) [June 24,
-    > 2020](https://twitter.com/dsquintana/status/1275705042385940480?ref_src=twsrc%5Etfw)
+    > 2020](https://twitter.com/dsquintana/status/1275705042385940480)
 
 Alternatively, you can choose to use `tweet_screenshot()` or
 `tweet_markdown()` to embed all tweets in your documents.
