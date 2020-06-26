@@ -8,3 +8,12 @@ read_pkg_file <- function(..., collapse = "\n", sep = "") {
     collapse = collapse
   )
 }
+
+assert_string <- function(x) {
+  var <- substitute(x)
+  if (!is.character(x) || length(x) != 1) {
+    stop(paste0(
+      "`", var, "` must be a single string."
+    ))
+  }
+}

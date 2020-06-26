@@ -67,6 +67,7 @@ tweet_embed <- function(
   widget_type = NULL,
   dnt = TRUE
 ) {
+  assert_string(tweet_url)
   align <- match.arg(align)
   theme <- match.arg(theme)
   if (!is.null(widget_type) && !identical(widget_type, "video")) {
@@ -141,3 +142,4 @@ validate_true <- function(x) {
 `%tweet%` <- function(screen_name, status_id) {
   tweet_url(screen_name, status_id)
 }
+

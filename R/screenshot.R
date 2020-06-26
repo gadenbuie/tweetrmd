@@ -26,6 +26,7 @@ tweet_screenshot <- function(
   link_color = NULL,
   ...
 ) {
+  assert_string(tweet_url)
   requires_webshot2()
 
   html <- single_tweet_page(tweet_url, maxwidth, scale, link_color, ...)
