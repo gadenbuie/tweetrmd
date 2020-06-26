@@ -149,8 +149,8 @@ include_tweet(
     > --- Dan Quintana (\@dsquintana) [June 24,
     > 2020](https://twitter.com/dsquintana/status/1275705042385940480?ref_src=twsrc%5Etfw)
 
-Alternatively, you can choose to use `tweet_screenshot()` to embed all
-tweets in your documents.
+Alternatively, you can choose to use `tweet_screenshot()` or
+`tweet_markdown()` to embed all tweets in your documents.
 
 ## Caching tweets with memoization
 

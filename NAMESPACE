@@ -3,5 +3,6 @@
 export("%tweet%")
 export(include_tweet)
 export(tweet_embed)
+export(tweet_markdown)
 export(tweet_screenshot)
 export(tweet_url)

@@ -2,9 +2,12 @@
 % Please edit documentation in R/include_tweet.R
 \name{include_tweet}
 \alias{include_tweet}
+\alias{tweet_markdown}
 \title{Include A Tweet in All R Markdown Formats}
 \usage{
 include_tweet(tweet_url, plain = FALSE, ...)
+
+tweet_markdown(tweet_url, ...)
 }
 \arguments{
 \item{tweet_url}{The URL for the tweet, or use \code{\link[=tweet_url]{tweet_url()}} to build the URL
@@ -73,6 +76,11 @@ a screen shot of the tweet is rendered and used \code{\link[=tweet_screenshot]{t
 would rather that just the text of the tweet be included in non-HTML outputs,
 use \code{\link[=tweet_embed]{tweet_embed()}}.
 }
+\section{Functions}{
+\itemize{
+\item \code{tweet_markdown}: Return a tweet as plain markdown.
+}}
+
 \examples{
 
 include_tweet("https://twitter.com/dsquintana/status/1275705042385940480")

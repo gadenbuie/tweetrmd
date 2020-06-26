@@ -121,7 +121,7 @@ include_tweet(
 
 ````
 
-Alternatively, you can choose to use `tweet_screenshot()`
+Alternatively, you can choose to use `tweet_screenshot()` or `tweet_markdown()`
 to embed all tweets in your documents.
 
 ## Caching tweets with memoization

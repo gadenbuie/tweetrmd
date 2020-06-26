@@ -23,29 +23,32 @@ include_tweet <- function(tweet_url, plain = FALSE, ...) {
   }
 
   if (isTRUE(plain) || !requires_webshot2(stop = FALSE)) {
-    knitr::asis_output(tweet_as_markdown(tweet_url, ...))
+    knitr::asis_output(tweet_markdown(tweet_url, ...))
   } else {
     tweet_screenshot(tweet_url, ...)
   }
 }
 
-tweet_as_markdown <- function(x, ...) UseMethod("tweet_as_markdown", x)
+#' @describeIn include_tweet Return a tweet as plain markdown.
+#' @export
+tweet_markdown <- function(tweet_url, ...) {
+  assert_string(tweet_url)
+  bq <- tweet_blockquote(tweet_url, ...)
+  html_to_markdown(bq)
+}
 
-tweet_as_markdown.html <- function(html, ...) {
+html_to_markdown <- function(html, ...) {
   rmarkdown::pandoc_available(error = TRUE)
   tmpfile <- tempfile(fileext = ".html")
   tmpout <- tempfile(fileext = ".md")
   on.exit(unlink(c(tmpfile, tmpout)))
   writeLines(format(html), tmpfile)
   rmarkdown::pandoc_convert(tmpfile, from = "html", output = tmpout)
-  paste(readLines(tmpout), collapse = "\n")
+  x <- paste(readLines(tmpout), collapse = "\n")
+  # strip twitter ?ref_src from urls
+  gsub("(twitter[.]com.+?)([?][^)]+)", "\\1", x)
 }
 
-tweet_as_markdown.character <- function(tweet_url, ...) {
-  assert_string(tweet_url)
-  bq <- tweet_blockquote(tweet_url, ...)
-  tweet_as_markdown(bq)
-}
 
 in_knitr <- function() {
   !is.null(knitr::current_input())
