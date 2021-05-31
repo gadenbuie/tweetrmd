@@ -22,7 +22,7 @@ tweet_embed(
   dnt = TRUE
 )
 
-tweet_url(screen_name, status_id)
+tweet_url(screen_name = NULL, status_id)
 
 screen_name \%tweet\% status_id
 }
@@ -112,6 +112,8 @@ tweet in R Markdown HTML outputs.
 tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
 
 tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
+
+tweet_embed("1211748406730706944")
 
 # Adding many tweets at once to a document takes a little bit more work
 thread <- c(

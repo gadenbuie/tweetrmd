@@ -13,6 +13,8 @@
 #'
 #' tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
 #'
+#' tweet_embed("1211748406730706944")
+#'
 #' # Adding many tweets at once to a document takes a little bit more work
 #' thread <- c(
 #'   "https://twitter.com/grrrck/status/1333804309272621060",
@@ -91,6 +93,9 @@ tweet_embed <- function(
   dnt = TRUE
 ) {
   assert_string(tweet_url)
+  if (!grepl("[^0-9]", tweet_url)) {
+    tweet_url <- tweet_url(tweet_url)
+  }
 
   if (plain) omit_script <- TRUE
 
@@ -119,8 +124,15 @@ tweet_embed <- function(
 #' @param screen_name The user's screen name
 #' @param status_id The tweet's status id
 #' @export
-tweet_url <- function(screen_name, status_id) {
-  stopifnot(grepl("[^\\d]", status_id))
+tweet_url <- function(screen_name = NULL, status_id) {
+  if ((!grepl("[^0-9]", as.character(screen_name)) && missing(status_id))) {
+    status_id <- screen_name
+    screen_name <- "status"
+  } else if (!grepl("[^0-9]", as.character(status_id)) && is.null(screen_name)) {
+    screen_name <- "status"
+  }
+  status_id <- as.character(status_id)
+  stopifnot("status_id must contain only numbers" = grepl("[0-9]", status_id))
   sprintf("https://twitter.com/%s/status/%s", screen_name, status_id)
 }
 
