@@ -55,6 +55,27 @@ tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
 In rich HTML outputs, the full embedded tweet is available and interactive.
 Here, in GitHub-flavored markdown, only the content of the tweet is seen.
 
+## Embed many tweets
+
+If you have several tweets you would like to embed at once,
+you can use the following pattern to include add a vector of tweets to your document.
+This works well when you want to include a 
+[thread of tweets](https://gist.github.com/gadenbuie/33c350458305f4423f30c1274be63b34).
+
+```{r}
+thread <- c(
+  "https://twitter.com/grrrck/status/1333804309272621060",
+  "https://twitter.com/grrrck/status/1333804487148855300", 
+  "https://twitter.com/grrrck/status/1333805092152123394"
+)
+
+htmltools::tagList(
+  lapply(thread, tweet_embed, plain = TRUE)
+)
+```
+
+(Note that I used `plain = TRUE` to embed each tweet [as markdown](#embed-without-tracking).)
+
 ## Take a screenshot of a tweet
 
 Screenshots are automatically embedded in R Markdown documents,

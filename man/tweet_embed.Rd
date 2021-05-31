@@ -112,6 +112,17 @@ tweet in R Markdown HTML outputs.
 tweet_embed("https://twitter.com/alexpghayes/status/1211748406730706944")
 
 tweet_embed(tweet_url("alexpghayes", "1211748406730706944"))
+
+# Adding many tweets at once to a document takes a little bit more work
+thread <- c(
+  "https://twitter.com/grrrck/status/1333804309272621060",
+  "https://twitter.com/grrrck/status/1333804487148855300",
+  "https://twitter.com/grrrck/status/1333805092152123394"
+)
+
+htmltools::tagList(
+  lapply(thread, tweet_embed, plain = TRUE)
+)
 }
 
 }
