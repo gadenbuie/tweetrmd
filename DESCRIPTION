@@ -2,13 +2,10 @@ Package: tweetrmd
 Title: Embed Tweets in R Markdown
 Version: 0.0.10
 Authors@R: 
-    person(given = "Garrick",
-           family = "Aden-Buie",
-           role = c("aut", "cre"),
-           email = "garrick@adenbuie.com",
+    person("Garrick", "Aden-Buie", , "garrick@adenbuie.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7111-0077"))
-Description: Easily embed Tweets anywhere R Markdown turns plain
-    text into HTML.
+Description: Easily embed Tweets anywhere R Markdown turns plain text into
+    HTML.
 License: MIT + file LICENSE
 URL: https://github.com/gadenbuie/tweetrmd
 BugReports: https://github.com/gadenbuie/tweetrmd/issues
